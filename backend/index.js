@@ -2,12 +2,15 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 const cors = require('cors');
+const path = require('path');
 const connectDB = require('./config/db')
 const userRoute = require('./routes/userRoute');
 const Blog = require('./models/blogModel');
 const { errorHandler, notFound } = require('./middlewares/errorMiddleware');
 const Testimonial = require('./models/testimonialModel');
 const Project = require('./models/projectModel');
+
+app.use('/', express.static(path.join(__dirname, '../frontend/public')));
 
 
 const app = express();
